@@ -1,2 +1,1 @@
-# Object_Oriented
-This repository is about my work with object oriented language such as Python, JAVA and C#
+# HackerRank Coding Problems in 3 different coding languages(Python, JAVA, C#)
