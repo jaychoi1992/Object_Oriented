@@ -9,8 +9,8 @@ import sys
 
 # Complete the reverseArray function below.
 def reverseArray_Myanswer(a):
-    a.reverse()
-    return a[::-1]
+    return a.reverse()
+    
 
 
 def reverseArray_otheranswer(a):
