@@ -1,0 +1,122 @@
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+namespace HackerRank
+{
+    public class InsertTailLinkedList
+    {
+        class SinglyLinkedListNode
+        {
+            public int data;
+            public SinglyLinkedListNode next;
+
+            public SinglyLinkedListNode(int nodeData)
+            {
+                this.data = nodeData;
+                this.next = null;
+            }
+        }
+
+        class SinglyLinkedList
+        {
+            public SinglyLinkedListNode head;
+
+            public SinglyLinkedList()
+            {
+                this.head = null;
+            }
+
+        }
+
+        static void PrintSinglyLinkedList(SinglyLinkedListNode node, string sep, TextWriter textWriter)
+        {
+            while (node != null)
+            {
+                textWriter.Write(node.data);
+
+                node = node.next;
+
+                if (node != null)
+                {
+                    textWriter.Write(sep);
+                }
+            }
+        }
+
+        // Complete the insertNodeAtTail function below.
+
+        /*
+         * For your reference:
+         *
+         * SinglyLinkedListNode {
+         *     int data;
+         *     SinglyLinkedListNode next;
+         * }
+         *
+         */
+        static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data)
+        {
+            var newNode = new SinglyLinkedListNode(data);
+            if (head == null)
+            {
+                head = newNode;
+            }
+            else
+            {
+                var last = head;
+                while (last.next != null)
+                {
+                    last = last.next;
+
+                }
+                last.next = newNode;
+            }
+            return head;
+
+        }
+        static void printLinkedList(SinglyLinkedListNode head)
+        {
+            while (head != null)
+            {
+                Console.WriteLine(head.data);
+                head = head.next;
+            }
+
+        }
+
+        static void Main(string[] args)
+        {
+            //TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+
+            SinglyLinkedList llist = new SinglyLinkedList();
+
+            int llistCount = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < llistCount; i++)
+            {
+                int llistItem = Convert.ToInt32(Console.ReadLine());
+                SinglyLinkedListNode llist_head = insertNodeAtTail(llist.head, llistItem);
+                llist.head = llist_head;
+
+            }
+            printLinkedList(llist.head);
+
+
+            //PrintSinglyLinkedList(llist.head, "\n", textWriter);
+            //textWriter.WriteLine();
+
+            //textWriter.Flush();
+            //textWriter.Close();
+        }
+    }
+}
